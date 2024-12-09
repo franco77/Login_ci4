@@ -251,7 +251,7 @@
                 <li class="nav-item topbar-user dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="<?= base_url('uploads/') . getUserData('avatar') ?>" alt="..."
+                            <img src="<?= base_url('uploads/avatars/') . getUserData('avatar') ?>" alt="..."
                                 class="avatar-img rounded-circle" />
                         </div>
                         <span class="profile-username">
@@ -264,24 +264,24 @@
                             <li>
                                 <div class="user-box">
                                     <div class="avatar-lg">
-                                        <img src="<?= base_url('uploads/') . getUserData('avatar') ?>"
+                                        <img src="<?= base_url('uploads/avatars/') . getUserData('avatar') ?>"
                                             alt="image profile" class="avatar-img rounded" />
                                     </div>
                                     <div class="u-text">
                                         <h4> </h4>
                                         <p class="text-muted"></p>
-                                        <a href="<?= base_url('profile/') ?>"
+                                        <a href="<?= base_url('admin/profile/') ?>"
                                             class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?= base_url('profile/') ?>">My Profile</a>
+                                <a class="dropdown-item" href="<?= base_url('admin/profile/') ?>">My Profile</a>
                                 <a class="dropdown-item" href="#">My Balance</a>
                                 <a class="dropdown-item" href="#">Inbox</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?= base_url('settings/') ?>">Setting</a>
+                                <a class="dropdown-item" href="<?= base_url('admin/settings/') ?>">Setting</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url('logout') ?>">Logout</a>
                             </li>

@@ -179,9 +179,15 @@ class Users extends BaseController
             $table .= '<tr><th>Email</th><td>' . $data['email'] . '</td></tr>';
             $table .= '<tr><th>Phone</th><td>' . $data['phone'] . '</td></tr>';
             $table .= '<tr><th>Address</th><td>' . $data['address'] . '</td></tr>';
-            $table .= '<tr><th>Avatar</th><td>' . $data['avatar'] . '</td></tr>';
+            $avatar = !empty($data['avatar']) ? base_url('uploads/avatars/' . $data['avatar']) : base_url('uploads/avatars/default-avatar.png');
+            $table .= '<tr>
+                <th>Avatar</th>
+                <td>
+                    <div class="avatar"><img src="' . $avatar . '" class="avatar-img rounded"></div>
+                </td>
+            </tr>';
+
             $table .= '<tr><th>Profile</th><td>' . $data['profile'] . '</td></tr>';
-            $table .= '<tr><th>Password</th><td>' . $data['password'] . '</td></tr>';
             $table .= '<tr><th>Role Id</th><td>' . $data['role_id'] . '</td></tr>';
             $table .= '<tr><th>Created At</th><td>' . $data['created_at'] . '</td></tr>';
             $table .= '<tr><th>Updated At</th><td>' . $data['updated_at'] . '</td></tr>';

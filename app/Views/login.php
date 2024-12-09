@@ -94,7 +94,7 @@
                             required minlength="8" aria-describedby="passwordFeedback" autocomplete="current-password">
                         <button class="btn btn-outline-secondary" type="button" id="togglePassword"
                             aria-label="Mostrar contraseña">
-                            <i class="bi bi-eye"></i>
+                            <i class="bi bi-eye" id="togglePasswordIcon"></i>
                         </button>
                     </div>
                     <div id="passwordFeedback" class="invalid-feedback">La contraseña debe tener al menos 8 caracteres.
@@ -109,12 +109,32 @@
                 </div>
             </form>
             <?php if (isset($error)): ?>
-                <p style="color: red;"><?= esc($error) ?></p>
+                <br>
+                <div class="alert alert-danger text-center" role="alert">
+                    <?= esc($error) ?></div>
             <?php endif; ?>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script>
+        $(document).ready(function() {
+            $('#togglePassword').on('click', function() {
+                const passwordField = $('#password');
+                const passwordFieldType = passwordField.attr('type');
+                const togglePasswordIcon = $('#togglePasswordIcon');
+
+                if (passwordFieldType === 'password') {
+                    passwordField.attr('type', 'text');
+                    togglePasswordIcon.removeClass('bi-eye').addClass('bi-eye-slash');
+                } else {
+                    passwordField.attr('type', 'password');
+                    togglePasswordIcon.removeClass('bi-eye-slash').addClass('bi-eye');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

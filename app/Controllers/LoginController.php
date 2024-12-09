@@ -38,7 +38,7 @@ class LoginController extends Controller
         $user = $this->UserModel->getUserByUsername($username);
 
         // Verificar si el usuario existe y la contraseña es correcta
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && strcasecmp($username, $user['username']) === 0 && password_verify($password, $user['password'])) {
             // Verificar si la cuenta está activa
             if (!$user['is_active']) {
                 return view('login', ['error' => 'Account is inactive. Please contact support.']);

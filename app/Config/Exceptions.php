@@ -22,7 +22,7 @@ class Exceptions extends BaseConfig
      *
      * Default: true
      */
-    public bool $log = true;
+    public bool $log = false;
 
     /**
      * --------------------------------------------------------------------------

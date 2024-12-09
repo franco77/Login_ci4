@@ -102,8 +102,9 @@ class UserModel extends Model
             ->countAllResults();
     }
 
-    public function getUserByUsername($username)
+    public function getUserByUsername(string $username)
     {
-        return $this->where('username', $username)->first(); // Buscar usuario por nombre
+        $query = $this->db->query("SELECT * FROM users WHERE BINARY username = ? LIMIT 1", [$username]);
+        return $query->getRowArray();
     }
 }

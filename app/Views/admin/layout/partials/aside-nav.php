@@ -1,8 +1,8 @@
-<div class="sidebar" data-background-color="">
+<div class="sidebar" data-background-color="dark">
     <div class="sidebar-logo">
         <!-- Logo Header -->
 
-        <div class="logo-header" data-background-color="light">
+        <div class="logo-header" data-background-color="dark">
             <a href="<?= base_url('Dashboard') ?>" class="logo">
                 <img src="<?= base_url('uploads/settings/') . get_setting('logo') ?>" alt="navbar brand"
                     class="navbar-brand" height="40" />
@@ -25,9 +25,15 @@
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item">
-                    <a href="<?= base_url('dashboard/') ?>">
+                    <a href="<?= base_url('admin/dashboard/') ?>">
                         <i class="fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/users/') ?>">
+                        <i class="fas fa-users"></i>
+                        <p>Usuarios</p>
                     </a>
                 </li>
             </ul>
