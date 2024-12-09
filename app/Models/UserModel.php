@@ -107,4 +107,30 @@ class UserModel extends Model
         $query = $this->db->query("SELECT * FROM users WHERE BINARY username = ? LIMIT 1", [$username]);
         return $query->getRowArray();
     }
+
+
+
+    public function findByEmail($email)
+    {
+        return $this->where('email', $email)->first();
+    }
+
+    public function saveToken($email, $token)
+    {
+        return $this->db->table('password_resets')->insert([
+            'email' => $email,
+            'token' => $token,
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+    }
+
+    public function findToken($token)
+    {
+        return $this->db->table('password_resets')->where('token', $token)->get()->getRow();
+    }
+
+    public function deleteToken($token)
+    {
+        return $this->db->table('password_resets')->where('token', $token)->delete();
+    }
 }

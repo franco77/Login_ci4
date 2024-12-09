@@ -79,35 +79,17 @@
                     class="rounded-circle mb-3">
                 <h2 class="fw-bold">Iniciar Sesión</h2>
             </div>
-            <form id="loginForm" action="<?= base_url('/login/authenticate') ?>" method="post">
+            <form action="<?= base_url('PasswordController/sendResetLink') ?>" method="post">
+                <!-- Correo electrónico -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="text" class="form-control form-control-lg" name="username" id="username" required
-                        aria-describedby="emailFeedback">
-                    <div id="emailFeedback" class="invalid-feedback">Por favor ingrese un correo electrónico válido.
-                    </div>
+                    <input type="email" id="email" name="email" class="form-control"
+                        placeholder="Ingrese su correo electrónico" required>
                 </div>
-                <div class="mb-4">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <div class="input-group">
-                        <input type="password" class="form-control form-control-lg" name="password" id="password"
-                            required minlength="8" aria-describedby="passwordFeedback" autocomplete="current-password">
-                        <button class="btn btn-outline-secondary" type="button" id="togglePassword"
-                            aria-label="Mostrar contraseña">
-                            <i class="bi bi-eye" id="togglePasswordIcon"></i>
-                        </button>
-                    </div>
-                    <div id="passwordFeedback" class="invalid-feedback">La contraseña debe tener al menos 8 caracteres.
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg w-100 mb-3" id="submitBtn">
-                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                    Iniciar Sesión
-                </button>
-                <div class="text-center">
-                    <a href="<?= base_url('PasswordController/forgotPassword') ?>"
-                        class="text-decoration-none">¿Olvidaste tu
-                        contraseña?</a>
+
+                <!-- Botón de envío -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Enviar Enlace</button>
                 </div>
             </form>
             <?php if (isset($error)): ?>

@@ -56,7 +56,18 @@ abstract class BaseController extends Controller
         $this->validation = \Config\Services::validation();
         $this->db = \Config\Database::connect();
         $this->email = \Config\Services::email();
-        // Preload any models, libraries, etc, here.
+        $this->emailConfig = [
+            'protocol'   => 'smtp',
+            'SMTPHost'   => 'smtp.gmail.com',
+            'SMTPPort'   => 587,
+            'SMTPUser'   => 'juanfranco561@gmail.com', // Cambia esto por las credenciales reales
+            'SMTPPass'   => 'yxkk rrap isuw sdju',     // Cambia esto por las credenciales reales
+            'SMTPCrypto' => 'tls',
+            'mailType'   => 'html',
+            'charset'    => 'utf-8',
+            'wordWrap'   => true,
+        ];
+        $this->email->initialize($this->emailConfig);
 
         // E.g.: $this->session = \Config\Services::session();
     }
