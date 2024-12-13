@@ -39,10 +39,10 @@ class PasswordController extends BaseController
         $this->UsersModel->saveToken($email, $token);
 
         $resetLink = base_url("PasswordController/resetPassword/$token");
-
+        $fromEmail = get_setting('logo');
         // Configurar correo electrónico
         $this->email->setTo($email);
-        $this->email->setFrom('juanfranco561@gmail.com');
+        $this->email->setFrom($fromEmail);
         $this->email->setSubject('Restablecimiento de contraseña');
         $this->email->setMessage("Haz clic en el siguiente enlace para restablecer tu contraseña: $resetLink");
 

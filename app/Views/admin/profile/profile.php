@@ -73,9 +73,9 @@
                                 </form>
                                 <br>
                                 <span class="font-weight-bold" id="displayUsername">
-                                    <?= get_setting('first_name') . ' ' . get_setting('last_name'); ?>
+                                    <?= $user['first_name'] . ' ' . $user['last_name']; ?>
                                 </span>
-                                <span class="text-black-50" id="displayEmail"><?= get_setting('email'); ?></span>
+                                <span class="text-black-50" id="displayEmail"><?= $user['email']; ?></span>
                             </div>
                         </div>
 

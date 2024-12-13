@@ -18,7 +18,12 @@ class Settings extends BaseController
     public function index()
     {
         $settings = $this->settingsModel->findAll();
-        return view('admin/settings/edit', ['settings' => $settings, 'title' => 'Ajustes']);
+        $data = [
+            'settings' => $settings,
+            'title' => 'Ajustes'
+        ];
+
+        return view('admin/settings/edit', $data);
     }
 
     public function updateSettings()

@@ -50,73 +50,7 @@
                         </form>
                     </ul>
                 </li>
-                <li class="nav-item topbar-icon dropdown hidden-caret">
-                    <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-envelope"></i>
-                    </a>
-                    <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
-                        <li>
-                            <div class="dropdown-title d-flex justify-content-between align-items-center">
-                                Messages
-                                <a href="#" class="small">Mark all as read</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="message-notif-scroll scrollbar-outer">
-                                <div class="notif-center">
-                                    <a href="#">
-                                        <div class="notif-img">
-                                            <img src="../img/jm_denis.jpg" alt="Img Profile" />
-                                        </div>
-                                        <div class="notif-content">
-                                            <span class="subject">Jimmy Denis</span>
-                                            <span class="block"> How are you ? </span>
-                                            <span class="time">5 minutes ago</span>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="notif-img">
-                                            <img src="../img/chadengle.jpg" alt="Img Profile" />
-                                        </div>
-                                        <div class="notif-content">
-                                            <span class="subject">Chad</span>
-                                            <span class="block"> Ok, Thanks ! </span>
-                                            <span class="time">12 minutes ago</span>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="notif-img">
-                                            <img src="../img/mlane.jpg" alt="Img Profile" />
-                                        </div>
-                                        <div class="notif-content">
-                                            <span class="subject">Jhon Doe</span>
-                                            <span class="block">
-                                                Ready for the meeting today...
-                                            </span>
-                                            <span class="time">12 minutes ago</span>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="notif-img">
-                                            <img src="../img/talha.jpg" alt="Img Profile" />
-                                        </div>
-                                        <div class="notif-content">
-                                            <span class="subject">Talha</span>
-                                            <span class="block"> Hi, Apa Kabar ? </span>
-                                            <span class="time">17 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="see-all" href="javascript:void(0);">See all messages<i
-                                    class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li class="nav-item topbar-icon dropdown hidden-caret">
                     <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -251,8 +185,10 @@
                 <li class="nav-item topbar-user dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="<?= base_url('uploads/avatars/') . getUserData('avatar') ?>" alt="..."
-                                class="avatar-img rounded-circle" />
+                            <?php
+                            $userAvatar = getUserData('avatar');
+                            $avatar = !empty($userAvatar) ? base_url('uploads/avatars/' . $userAvatar) : base_url('uploads/avatars/default-avatar.png'); ?>
+                            <img src="<?= $avatar ?>" alt="..." class="avatar-img rounded-circle" />
                         </div>
                         <span class="profile-username">
                             <span class="op-7">Hi, <?= getUserData('first_name'); ?></span>
@@ -264,8 +200,7 @@
                             <li>
                                 <div class="user-box">
                                     <div class="avatar-lg">
-                                        <img src="<?= base_url('uploads/avatars/') . getUserData('avatar') ?>"
-                                            alt="image profile" class="avatar-img rounded" />
+                                        <img src="<?= $avatar ?>" alt="image profile" class="avatar-img rounded" />
                                     </div>
                                     <div class="u-text">
                                         <h4> </h4>
@@ -278,8 +213,8 @@
                             <li>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url('admin/profile/') ?>">My Profile</a>
-                                <a class="dropdown-item" href="#">My Balance</a>
-                                <a class="dropdown-item" href="#">Inbox</a>
+                                <a class="dropdown-item" href="<?= base_url('admin/todo/') ?>">Todo</a>
+                                <a class="dropdown-item" href="<?= base_url('admin/backup') ?>">Backup</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url('admin/settings/') ?>">Setting</a>
                                 <div class="dropdown-divider"></div>
