@@ -81,10 +81,10 @@
             </div>
             <form id="loginForm" action="<?= base_url('/login/authenticate') ?>" method="post">
                 <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <label for="email" class="form-label">Username</label>
                     <input type="text" class="form-control form-control-lg" name="username" id="username" required
                         aria-describedby="emailFeedback">
-                    <div id="emailFeedback" class="invalid-feedback">Por favor ingrese un correo electrónico válido.
+                    <div id="emailFeedback" class="invalid-feedback">Por favor ingrese un Nombre de usuario válido.
                     </div>
                 </div>
                 <div class="mb-4">
